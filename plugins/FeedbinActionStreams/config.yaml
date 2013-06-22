@@ -1,0 +1,38 @@
+name: Action Streams: Feedbin
+id: FeedbinAS
+key: FeedbinAS
+author_link: http://kevinspencer.org/
+author_name: Kevin Spencer
+description: Display Feedbin starred items.
+version: 1.0
+plugin_link: https://github.com/kevinspencer/mt-plugin-feedbin-action-streams
+
+profile_services:
+    Feedbin:
+        name: Feedbin
+        url: https://feedbin.me/starred/%s
+        ident_example: https://feedbin.me/starred/4tx--Ya2FVe6FGQnKrr5bw.xml
+        icon: images/feedbin.png
+        ident_label: XML File
+        can_many: 1
+
+action_streams:
+    Feedbin:
+        links:
+            name: Starred items
+            description: Your starred items
+            fields:
+                - note
+            html_form: '[_1] starred <a href="[_2]">[_3]</a>'
+            html_params:
+                - url
+                - title
+            url: 'https://feedbin.me/starred/{{ident}}'
+            identifier: url
+            xpath:
+                foreach: //item
+                get:
+                    created_on: pubDate
+                    title: title
+                    url: link
+                    note: description
