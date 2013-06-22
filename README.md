@@ -4,6 +4,13 @@
 
 Aggregates starred items from a feedbin.me account into Action Streams
 
+## Enabling Feedbin Starred Items Feed
+
+Go into settings in your Feedbin account and check the 'Enable starred entry feed' checkbox.  Once enabled, your feed will be found here:
+
+https://feedbin.me/starred/{{xmlfile}}
+
+The xmlfile will be unique to your Feedbin account.  In the Movable Type action streams profile creation screen, you'll need to enter that xml file.
 
 ## Installation
 
